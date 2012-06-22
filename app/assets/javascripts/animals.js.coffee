@@ -48,9 +48,7 @@ $ ->
 
     animalSelected: (animal)=>
       # unbind from the current model
-      if @model?
-        @model.off()
-        @$el.off 'change'
+      @model.off() if @model?
 
       # bind the new model
       @model = animal
@@ -58,11 +56,13 @@ $ ->
       @render()
 
     render: =>
+      console.log 'change'
       @$el.html @template model:@model.toJSON()
       return this
 
     toggleHairy: (e) =>
-      e.preventDefault()
+      # e.preventDefault()
+      console.log 'toggleHairy'
       @model.set hair:e.target.checked
 
   animals = new AnimalCollection()
