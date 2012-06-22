@@ -56,14 +56,12 @@ $ ->
       @render()
 
     render: =>
-      console.log 'change'
       @$el.html @template model:@model.toJSON()
       return this
 
     toggleHairy: (e) =>
-      # e.preventDefault()
-      console.log 'toggleHairy'
       @model.set hair:e.target.checked
+      @model.save()
 
   animals = new AnimalCollection()
   listView = new AnimalListView(collection:animals)
