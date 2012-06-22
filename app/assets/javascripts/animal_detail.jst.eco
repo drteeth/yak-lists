@@ -1,0 +1,4 @@
+<p><%= @model.name %> <%= 'Soo hariy!' if @model.hair %></p>
+
+name: <input type="text" name="name" value="<%= @model.name %>" />
+hair: <input type="checkbox" id="hair_checkbox" name="hair" checked="<%= @model.hair %>" />
