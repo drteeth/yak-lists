@@ -66,11 +66,7 @@ $ ->
       @model.set hair:e.target.checked
 
   animals = new AnimalCollection()
-
   listView = new AnimalListView(collection:animals)
   detailView = new AnimalDetailView(collection:animals)
-
-  # listView.render()
-  # detailView.render()
 
   animals.fetch()
