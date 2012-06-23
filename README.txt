@@ -1,11 +1,7 @@
-== ListBone
-
 Playing with backbone.js and list and details views.
 
-== installing
-
 # clone it
-git://github.com/drteeth/ListBone.git
+git clone git://github.com/drteeth/ListBone.git
 
 # bundle!
 bundle
