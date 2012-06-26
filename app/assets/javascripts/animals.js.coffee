@@ -37,11 +37,14 @@ $ ->
 
 
   class AnimalDetailView extends Backbone.View
+    ENTER = 13
+
     el: '#detail'
     template: JST['animal_detail']
 
     events:
       'change #hair_checkbox': 'toggleHairy'
+      'keypress input[name="name"]' : 'changeName'
 
     initialize: (options) ->
       @collection.bind 'select:animal', @animalSelected
@@ -52,16 +55,31 @@ $ ->
 
       # bind the new model
       @model = animal
-      @model.bind 'change', @render
+      @model.bind 'change', @onChange
       @render()
+
+    onChange: (animal,c) =>
+      if c.changes.hair
+        checkbox = @$el.find("#hair_checkbox")
+        checkbox.attr('checked', animal.get('hair'))
+
+      if c.changes.name
+        @$el.find('#name').text(animal.get('name'))
 
     render: =>
       @$el.html @template model:@model.toJSON()
       return this
 
     toggleHairy: (e) =>
+      e.preventDefault()
       @model.set hair:e.target.checked
       @model.save()
+
+    changeName: (e) =>
+      keyCode = e.keyCode || e.which
+      if keyCode == ENTER
+        @model.set name:$(e.target).val()
+        @model.save()
 
   animals = new AnimalCollection()
   listView = new AnimalListView(collection:animals)
