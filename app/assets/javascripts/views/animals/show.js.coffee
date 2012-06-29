@@ -3,11 +3,11 @@ class App.AnimalDetailView extends Backbone.View
   template: JST['templates/animals/show']
 
   initialize: (options) ->
-    @collection.bind 'select:animal', @animalSelected
+    @collection.bind 'select:animal', @animalSelected, this
 
-  animalSelected: (animal)=>
+  animalSelected: (animal) ->
     # unbind from the current model
-    @model.off() if @model?
+    @model.off(null,null,this) if @model?
 
     # bind the new model
     @model = animal

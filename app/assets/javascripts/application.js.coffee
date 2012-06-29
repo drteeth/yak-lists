@@ -7,7 +7,6 @@
 #= require_tree .
 #= require_bootstrap
 
-
 @App ||= {}
 
 $ ->

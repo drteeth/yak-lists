@@ -35,6 +35,5 @@ class App.AnimalView extends Backbone.View
     @$el.toggleClass('selected',true)
 
   render: ->
-    console.log 'render', @model.get('name')
     @$el.html JST[@templateName] model:@model.toJSON()
     return this
