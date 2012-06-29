@@ -1,8 +1,3 @@
-<h2 id="name"><%= @model.name %></h2>
-<p><%= if @model.hair then 'Soo hariy!' else 'Smooooth' %></p>
-
-<hr />
-
 <div class="edit">
   name: <input type="text" name="name" value="<%= @model.name %>" />
   hairy?: <input type="checkbox" id="hair_checkbox" name="hair" <%= if @model.hair == true then 'checked' else '' %> />

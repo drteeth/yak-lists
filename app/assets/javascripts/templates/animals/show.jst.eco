@@ -1,0 +1,2 @@
+<h2 id="name"><%= @model.name %></h2>
+<p><%= if @model.hair then 'Soo hariy!' else 'Smooooth' %></p>
