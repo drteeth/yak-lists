@@ -4,12 +4,12 @@ load "config/recipes/base"
 load "config/recipes/nginx"
 load "config/recipes/unicorn"
 load "config/recipes/postgresql"
-# load "config/recipes/nodejs"
+load "config/recipes/nodejs"
 load "config/recipes/rbenv"
 load "config/recipes/check"
 
 set :user, "deployer"
-set :application, "YakLists"
+set :application, "ListBone"
 
 set :scm, :git
 set :repository,  "git://github.com/drteeth/yak-lists.git"
